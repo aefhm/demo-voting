@@ -41,6 +41,7 @@ jobs:
           make deploy
         env:
           VITE_PINATA_JWT: ${{ secrets.VITE_PINATA_JWT }}
+          VITE_IPFS_GATEWAY: ${{ secrets.VITE_IPFS_GATEWAY }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
