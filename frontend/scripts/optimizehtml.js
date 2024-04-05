@@ -17,7 +17,8 @@ async function main() {
     }
 
     // Move all scripts to end of body
-    html = html.replace('</body>', scripts.join('') + '</body>');
+    const bodyIndex = html.lastIndexOf('</body>');
+    html = html.substring(0, bodyIndex) + scripts.join('') + html.substring(bodyIndex);
 
     // Strip contract bytecode
     for( const fn of globSync('../hardhat/abis/*.bin') ) {
